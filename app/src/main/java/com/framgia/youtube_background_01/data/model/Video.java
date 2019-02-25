@@ -1,14 +1,14 @@
 package com.framgia.youtube_background_01.data.model;
 
 public class Video {
-    private int mId;
-    private String mTitile;
+    private String mId;
+    private String mTitle;
     private String mUrlImage;
     private String mChannelTitle;
 
     public Video(VideoBuilder movieBuilder) {
         mId = movieBuilder.mId;
-        mTitile = movieBuilder.mTitle;
+        mTitle = movieBuilder.mTitle;
         mUrlImage = movieBuilder.mUrlImage;
         mChannelTitle = movieBuilder.mChannelTitle;
     }
@@ -16,11 +16,11 @@ public class Video {
     public Video() {
     }
 
-    public int getId() {
+    public String getId() {
         return mId;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         mId = id;
     }
 
@@ -32,12 +32,12 @@ public class Video {
         mChannelTitle = channelTitle;
     }
 
-    public String getTitile() {
-        return mTitile;
+    public String getTitle() {
+        return mTitle;
     }
 
-    public void setTitile(String titile) {
-        mTitile = titile;
+    public void setTitle(String title) {
+        mTitle = title;
     }
 
     public String getUrlImage() {
@@ -49,12 +49,12 @@ public class Video {
     }
 
     public static class VideoBuilder {
-        private int mId;
+        private String mId;
         private String mTitle;
         private String mUrlImage;
         private String mChannelTitle;
 
-        public VideoBuilder(int id, String title, String urlImage, String channelTitle) {
+        public VideoBuilder(String id, String title, String urlImage, String channelTitle) {
             mId = id;
             mTitle = title;
             mUrlImage = urlImage;
@@ -64,22 +64,22 @@ public class Video {
         public VideoBuilder() {
         }
 
-        public VideoBuilder id(int id) {
+        public VideoBuilder setId(String id) {
             mId = id;
             return this;
         }
 
-        public VideoBuilder title(String title) {
+        public VideoBuilder setTitle(String title) {
             mTitle = title;
             return this;
         }
 
-        public VideoBuilder urlImage(String urlImage) {
+        public VideoBuilder setUrlImage(String urlImage) {
             mUrlImage = urlImage;
             return this;
         }
 
-        public VideoBuilder channelTitle(String channelTitle) {
+        public VideoBuilder setChannelTitle(String channelTitle) {
             mChannelTitle = channelTitle;
             return this;
         }
