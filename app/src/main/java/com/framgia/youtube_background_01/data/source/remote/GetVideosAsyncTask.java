@@ -2,7 +2,6 @@ package com.framgia.youtube_background_01.data.source.remote;
 
 import android.os.AsyncTask;
 import com.framgia.youtube_background_01.data.model.Video;
-import com.framgia.youtube_background_01.utils.QueryType;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -34,11 +33,7 @@ public class GetVideosAsyncTask extends AsyncTask<String, Void, List<Video>> {
         List<Video> videos = null;
         try {
             String json = getDataFromUrl(strings[0]);
-            if (mQueryType == QueryType.GET_VIDEOS) {
-                videos = readDataFromJson(json);
-            } else if (mQueryType == QueryType.SEARCH_VIDEO) {
-                videos = readDataFromSearchJson(json);
-            }
+            videos = readDataFromJson(json);
         } catch (Exception e) {
             e.printStackTrace();
             mException = e;
@@ -80,27 +75,6 @@ public class GetVideosAsyncTask extends AsyncTask<String, Void, List<Video>> {
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject object = jsonArray.getJSONObject(i);
             Video video = new Video.VideoBuilder().setId(object.getString(Video.VideoEntry.ID))
-                    .setTitle(object.getJSONObject(SNIPPET).getString(Video.VideoEntry.TITLE))
-                    .setChannelTitle(
-                            object.getJSONObject(SNIPPET).getString(Video.VideoEntry.CHANNEL_TITLE))
-                    .setUrlImage(object.getJSONObject(SNIPPET)
-                            .getJSONObject(THUMBNAILS)
-                            .getJSONObject("default")
-                            .getString(Video.VideoEntry.URL_IMAGE))
-                    .build();
-            videos.add(video);
-        }
-        return videos;
-    }
-
-    private List<Video> readDataFromSearchJson(String json) throws JSONException {
-        List<Video> videos = new ArrayList<>();
-        JSONObject rootObject = new JSONObject(json);
-        JSONArray jsonArray = rootObject.getJSONArray(ITEM);
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject object = jsonArray.getJSONObject(i);
-            Video video = new Video.VideoBuilder().setId(object.getJSONObject(Video.VideoEntry.ID)
-                    .getString(Video.VideoEntry.ID_VIDEO_FROM_SEARCH))
                     .setTitle(object.getJSONObject(SNIPPET).getString(Video.VideoEntry.TITLE))
                     .setChannelTitle(
                             object.getJSONObject(SNIPPET).getString(Video.VideoEntry.CHANNEL_TITLE))
