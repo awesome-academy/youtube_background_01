@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">YoutubeBackground</string>
+    <string name="trending_test">Trending</string>
+    <string name="playlist_text">Playlist</string>
+    <string name="image_content_description">empty</string>
+    <string name="home">Home</string>
+    <string name="trending">Trending</string>
+    <string name="my_video">My video</string>
 </resources>
