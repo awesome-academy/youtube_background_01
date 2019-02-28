@@ -6,18 +6,18 @@ import android.os.Parcelable;
 public class PlayList implements Parcelable {
     private String mType;
     private String mId;
-    private int mUrl;
+    private int mImage;
 
     public PlayList(String type, int url, String id) {
         mType = type;
         mId = id;
-        mUrl = url;
+        mImage = url;
     }
 
     public PlayList(Parcel in) {
         mId = in.readString();
         mType = in.readString();
-        mUrl = in.readInt();
+        mImage = in.readInt();
     }
 
     @Override
@@ -29,7 +29,7 @@ public class PlayList implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(mId);
         dest.writeString(mType);
-        dest.writeInt(mUrl);
+        dest.writeInt(mImage);
     }
 
     public static final Creator<PlayList> CREATOR = new Creator<PlayList>() {
@@ -60,11 +60,11 @@ public class PlayList implements Parcelable {
         mId = id;
     }
 
-    public int getUrl() {
-        return mUrl;
+    public int getImage() {
+        return mImage;
     }
 
-    public void setUrl(int url) {
-        mUrl = url;
+    public void setImage(int image) {
+        mImage = image;
     }
 }

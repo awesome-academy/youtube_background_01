@@ -91,8 +91,7 @@ public class Video {
 
     public final class VideoEntry {
         public static final String VIDEO = "items";
-        public static final String ID = "id";
-        public static final String ID_VIDEO_FROM_SEARCH = "videoId";
+        public static final String ID_VIDEO = "videoId";
         public static final String TITLE = "title";
         public static final String URL_IMAGE = "url";
         public static final String CHANNEL_TITLE = "channelTitle";

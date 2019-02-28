@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import static com.framgia.youtube_background_01.utils.Constant.GET_METHOD;
+import static com.framgia.youtube_background_01.utils.Constant.HIGH;
 import static com.framgia.youtube_background_01.utils.Constant.ITEM;
 import static com.framgia.youtube_background_01.utils.Constant.REQUEST_TIMEOUT;
 import static com.framgia.youtube_background_01.utils.Constant.SNIPPET;
@@ -80,7 +81,7 @@ public class GetVideosAsyncTask extends AsyncTask<String, Void, List<Video>> {
                             object.getJSONObject(SNIPPET).getString(Video.VideoEntry.CHANNEL_TITLE))
                     .setUrlImage(object.getJSONObject(SNIPPET)
                             .getJSONObject(THUMBNAILS)
-                            .getJSONObject("default")
+                            .getJSONObject(HIGH)
                             .getString(Video.VideoEntry.URL_IMAGE))
                     .build();
             videos.add(video);
