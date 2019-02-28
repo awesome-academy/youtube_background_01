@@ -8,6 +8,7 @@ public final class Constant {
     public static final String ITEM = "items";
     public static final String SNIPPET = "snippet";
     public static final String THUMBNAILS = "thumbnails";
+    public static final String HIGH = "high";
     public final static String BASE_URL = "https://www.googleapis.com/youtube/v3/";
     public final static String BASE_QUERY_PLAYLIST = "playlistItems?part=snippet&playlistId=";
     public final static String BASE_MAX_RESULTS = "&maxResults=50";
